@@ -6,6 +6,23 @@ ties: 0
 
 updateScoreElement();
 
+let isAutoPlay = false;
+let intervalID = null;
+function autoPlay(){
+    if(isAutoPlay === false){
+        intervalID = setInterval(function(){
+            const playerMove = pickComputerMove();
+            playGame(playerMove);
+        }, 1000);
+        isAutoPlay = true;
+        document.querySelector('.auto-play-button').innerHTML = 'Stop play'
+    }
+    else {
+        clearInterval(intervalID);
+        isAutoPlay = false; 
+        document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
+    }
+}
 function playGame(playerMove){
 const computerMove = pickComputerMove();
 let result ='';
