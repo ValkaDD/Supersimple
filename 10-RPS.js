@@ -23,6 +23,14 @@ function autoPlay(){
         document.querySelector('.auto-play-button').innerHTML = 'Auto Play';
     }
 }
+let isAutoOnce = false;
+function autoPlayOnce(){
+    if(isAutoOnce === false){
+        const playerMove = pickComputerMove();
+        playGame(playerMove);
+    }
+}
+
 function playGame(playerMove){
 const computerMove = pickComputerMove();
 let result ='';
